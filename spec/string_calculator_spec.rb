@@ -2,17 +2,24 @@ require_relative "../lib/string_calculator"
 
 RSpec.describe StringCalculator do
   describe ".add" do
-    it "returns 0 for an empty string" do
-      expect(StringCalculator.add("")).to eq(0)
+    context "Step 1" do
+        it "returns 0 for an empty string" do
+            expect(StringCalculator.add("")).to eq(0)
+        end
+
+        it "returns the number, if only one number is given" do
+            expect(StringCalculator.add("1")).to eq(1)
+        end
+
+        it "returns the sum of 2 numbers" do
+            expect(StringCalculator.add("1,5")).to eq(6)
+        end
     end
 
-    it "returns the number, if only one number is given" do
-        expect(StringCalculator.add("1")).to eq(1)
+    context "Step 2" do
+        it "should add any amount of numbers" do
+            expect(StringCalculator.add("1,2,3,4,5")).to eq(15)
+        end
     end
-
-    it "returns the sum of 2 numbers" do
-        expect(StringCalculator.add("1,5")).to eq(6)
-    end
-
   end
 end
