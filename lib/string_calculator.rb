@@ -10,9 +10,15 @@ class StringCalculator
         end
 
         sum = 0
+        negative_numbers = []
         numbers.each do |num|
+            negative_numbers.push(num) if num.to_i < 0
             sum = sum + num.to_i
         end
-        sum
+        if negative_numbers.empty?
+            return sum
+        else
+            raise ArgumentError, "negative numbers not allowed #{negative_numbers.join(',')}"
+        end
     end
 end
