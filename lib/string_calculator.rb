@@ -1,5 +1,7 @@
 class StringCalculator
     def self.add(num)
+        return 0 if num.empty?
+
         if num.start_with?("//")
             delimiter_line, numbers_part = num.split("\n", 2)
             delimiter = delimiter_line[2..]
