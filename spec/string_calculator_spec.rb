@@ -28,5 +28,11 @@ RSpec.describe StringCalculator do
         end
     end
 
+    context "Step 4" do
+        it "should support different delimiters" do
+            expect(StringCalculator.add("//;\n1;2")).to eq(3)
+        end
+    end
+
   end
 end
