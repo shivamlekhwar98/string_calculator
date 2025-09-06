@@ -11,14 +11,10 @@ class StringCalculator
             numbers = num.split(/[\n,]/)
         end
 
-        sum = 0
-        negative_numbers = []
-        numbers.each do |num|
-            negative_numbers.push(num) if num.to_i < 0
-            sum = sum + num.to_i
-        end
+        negative_numbers = numbers.select{|n| n.to_i < 0 }
+
         if negative_numbers.empty?
-            return sum
+            return numbers.map(&:to_i).sum
         else
             raise ArgumentError, "negative numbers not allowed #{negative_numbers.join(',')}"
         end
